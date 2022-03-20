@@ -47,7 +47,7 @@ namespace Torres_de_Hanoi
 
             //Preguntamos al usuario el método que quiere utilizar
             Console.WriteLine("\n¿De qué forma quieres resolver el problema?");
-            Console.WriteLine("\nEscribe 'a' para elegir el modo iterativo o 'b' para el método recursivo.");
+            Console.WriteLine("\nEscribe 'a' para elegir el método iterativo o 'b' para el método recursivo.");
             ConsoleKey tecla = Console.ReadKey().Key;
 
             //Si las teclas presionadas no son ni la "a" ni la "b", pide volver a introducir una tecla
