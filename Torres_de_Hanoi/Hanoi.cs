@@ -31,9 +31,9 @@ namespace Torres_de_Hanoi
             {
                 //Definimos los valore de los discos para compararlos
                 //Se podría ahacer directamente sin asignarlos ahora
-                Disco discoA = b.Elementos[b.Top];
-                Disco discoB = a.Elementos[a.Top];
-
+                Disco discoA = a.Elementos[a.Top];
+                Disco discoB = b.Elementos[b.Top];
+                
                 //Si el valor de discoA es más grande que el valor de discoB
                 if (discoA.Valor > discoB.Valor)
                 {
@@ -50,6 +50,7 @@ namespace Torres_de_Hanoi
 
         }
 
+
         //Funcion para mover los discos cuando se da alguno de los casos de mover_disco
         public void movimientoDisco(Pila uno, Pila dos)
         {
@@ -57,7 +58,7 @@ namespace Torres_de_Hanoi
             Disco disco = uno.pop();
 
             //Mostramos el movimiento y el valor del disco movido
-            Console.WriteLine("El disco se ha movido" + disco.Valor);
+            Console.WriteLine("Se ha movido el disco con valor: " + disco.Valor);
 
             //Añadimos a la segunda pila el disco que hemos movido
             dos.push(disco);
@@ -65,10 +66,63 @@ namespace Torres_de_Hanoi
         }
 
         //Funcion del metodo iterativo
-        public int iterativo(int n, Pila inicio, Pila final, Pila auxiliar)
+        public int iterativo(int num, Pila inicio, Pila final, Pila auxiliar)
         {
-            return 0;
+            //Definicion de valores
+            discos = num;
+            bool condicion = false;
+            movimientos = 0;
+
+            //Si el numero de discos es impar
+            if (num % 2 != 0)
+            {
+                //Mientras que la condicion sea falsa (no haya solucion)
+                while(condicion == false)
+                {
+                    mirarMovimientos(inicio, final, final);
+                    mirarMovimientos(inicio, auxiliar, final);
+                    mirarMovimientos(auxiliar,final,final);
+
+                    if(final.Size == num)
+                    {
+                        condicion = true;
+                    }
+                }
+            }
+
+            //Si el numero de discos es par
+            else
+            {
+                //Mientras la condicion sea falsa (no haya solucion)
+                while (condicion == false)
+                {
+                    mirarMovimientos(inicio, auxiliar, final);
+                    mirarMovimientos(inicio, final, final);
+                    mirarMovimientos(auxiliar, final, final);
+
+                    if (final.Size == num)
+                    {
+                        condicion = true;
+                    }
+                }
+            }
+            //Devolver el numero de movimientos realizados (Se incrementa por mirarMovimientos)
+            return movimientos;
         }
+
+
+        //Funcion para comprobar el movimiento de los discos entre pilas
+        public void mirarMovimientos(Pila uno, Pila dos, Pila fin)
+        {
+            //Si el tamaño de la pila final es menor a los discos, podemos mover
+            if (fin.Size < discos)
+            {
+                mover_disco(uno, dos);
+                movimientos++;
+            }
+        }
+
+       
 
     }
 }

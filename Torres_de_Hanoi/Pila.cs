@@ -11,10 +11,10 @@ namespace Torres_de_Hanoi
         //PROPIEDADES
         //------------------------------------------
         //Propiedad Size
-        public int Size { get; set; }
+        public int Size { get; set; } 
         
         //Propiedad Top
-        public int Top { get { return Elementos.Count; } set { } }
+        public int Top { get { return Elementos.Count-1; } set { } }
 
        //Propiedad Elementos (Lista)
         public List<Disco> Elementos { get; set; }
@@ -52,8 +52,8 @@ namespace Torres_de_Hanoi
         {
             //Extraemos el disco de la pila
             //El -1 Debe estar porque el Elementos.Count devuelve 3, y como se registran las posiciones (0,1,2), se saldría y da error
-            Disco d = Elementos[Elementos.Count - 1];
-            Elementos.RemoveAt(Elementos.Count - 1);
+            Disco d = Elementos[Elementos.Count-1];
+            Elementos.RemoveAt(Elementos.Count-1);
             Size--;
             return d;
         }
