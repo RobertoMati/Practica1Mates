@@ -29,7 +29,7 @@ namespace Torres_de_Hanoi
             //Si las pilas no están vacías
             else
             {
-                //Definimos los valore de los discos para compararlos
+                //Definimos los valores de los discos para compararlos
                 //Se podría ahacer directamente sin asignarlos ahora
                 Disco discoA = a.Elementos[a.Top];
                 Disco discoB = b.Elementos[b.Top];
@@ -63,6 +63,17 @@ namespace Torres_de_Hanoi
             //Añadimos a la segunda pila el disco que hemos movido
             dos.push(disco);
 
+        }
+
+        //Funcion para comprobar el movimiento de los discos entre pilas
+        public void mirarMovimientos(Pila uno, Pila dos, Pila fin)
+        {
+            //Si el tamaño de la pila final es menor a los discos, podemos mover
+            if (fin.Size < discos)
+            {
+                mover_disco(uno, dos);
+                movimientos++;
+            }
         }
 
         //Funcion del metodo iterativo
@@ -110,24 +121,32 @@ namespace Torres_de_Hanoi
             return movimientos;
         }
 
-        public int recursivo(int num, Pila inicio, Pila final, Pila auxiliar, bool si)
+        //Funcion del método recursivo
+        public int recursivo(int num, Pila inicio, Pila final, Pila auxiliar)
         {
-            return 0;
-        }
-
-
-        //Funcion para comprobar el movimiento de los discos entre pilas
-        public void mirarMovimientos(Pila uno, Pila dos, Pila fin)
-        {
-            //Si el tamaño de la pila final es menor a los discos, podemos mover
-            if (fin.Size < discos)
+            //Si el número de discos es 1. Esto es el caso base necesario en la recursividad
+            if (num == 1)
             {
-                mover_disco(uno, dos);
-                movimientos++;
+                mirarMovimientos(inicio, final, final);
             }
+            //Algoritmo PDF, fuera del caso base de la recursividad
+            else
+            {
+                recursivo(num-1,inicio, auxiliar, final);
+                mirarMovimientos(inicio, final, final);
+                recursivo(num-1,auxiliar,final, inicio);
+            }
+            return movimientos;
         }
 
-       
+        //Llamamos a la funcion recursiva para poder utilizar el algoritmo
+        public int UsoRecursivo(int num, Pila inicio, Pila final, Pila auxiliar)
+        {
+            discos = num;
+            movimientos = recursivo(num, inicio, final, auxiliar);
+            return movimientos;
+        }
+
 
     }
 }

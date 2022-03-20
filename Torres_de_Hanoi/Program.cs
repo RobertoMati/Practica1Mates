@@ -16,16 +16,15 @@ namespace Torres_de_Hanoi
 
             
             
-            //Guardo lo escrito por el usuario y lo convierto a entero
+            //Guardo lo escrito por el usuario en un Strings
             String YaEscrito = Console.ReadLine().ToString();
             int valorEscrito;
-
 
 
             //En el caso de que el número que introduzca sea menor o igual a 0, o no sea un número, pide volver a introducir un número
             while (!Int32.TryParse(YaEscrito.ToString(), out valorEscrito) || valorEscrito <=0)
             {
-                Console.WriteLine("El número de discos debe ser un número mayor de 0 :(");
+                Console.WriteLine("Debes escribir un número mayor de 0 para continuar");
                 Console.WriteLine("\nEscribe el número de discos que quieres que hayan");
                 YaEscrito = Console.ReadLine().ToString();
             }
@@ -91,6 +90,32 @@ namespace Torres_de_Hanoi
             //Si el usuario escribe "b",  se ha elegido el método recursivo
             else if (tecla == ConsoleKey.B)
             {
+                Console.WriteLine("\n");
+                Console.WriteLine("¡HAS ELEGIDO EL MÉTODO RECURSIVO!\n");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("Al empezar, la pila inicial tiene " + inicio.Size + " discos; " + "la pila auxiliar " + auxiliar.Size + " y la pila final " + final.Size + ".");
+                Console.WriteLine("---------------------------------");
+
+                //Guardamos los valores de los movimientos realizados
+                double hanoiResultadoRecursivo = hanoi.UsoRecursivo(valorEscrito, inicio, final, auxiliar);
+                
+
+                //Guardamos el valor del número minimo de movimientos
+                double valorMinimo = (Math.Pow(2, valorEscrito) - 1);
+
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("Ahora, la pila inicial tiene " + inicio.Size + " discos; " + "la pila auxiliar " + auxiliar.Size + " y la pila final " + final.Size + ".");
+                Console.WriteLine("---------------------------------\n" + "\nSe han realizado " + hanoiResultadoRecursivo + " movimientos" + ", y el número mínimo de movimientos es " + valorMinimo + "\n");
+
+                //Si son iguales muestra un mensaje, sino, muestra otro
+                if ((Math.Pow(2, valorEscrito) - 1) == hanoiResultadoRecursivo)
+                {
+                    Console.WriteLine("¡El número de movimientos realizados coincide con el mínimo posible!");
+                }
+                else
+                {
+                    Console.WriteLine("Algo va mal, los valores no son iguales.");
+                }
 
             }
 

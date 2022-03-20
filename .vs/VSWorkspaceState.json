@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Torres_de_Hanoi"
   ],
-  "SelectedNode": "\\Torres_de_Hanoi.sln",
+  "SelectedNode": "\\Torres_de_Hanoi\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
