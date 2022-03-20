@@ -8,12 +8,19 @@ namespace Torres_de_Hanoi
 {
     class Hanoi
     {
-        //Creación variables
+        //------------------------------------------
+        //VARIABLES
         private int movimientos;
         private int discos;
+        //------------------------------------------
 
 
-        //Métodos
+        //------------------------------------------
+        //MÉTODOS
+
+
+        //------------------------------
+        //Función para mover discos
         public void mover_disco(Pila a, Pila b)
         {
             //Si la pila b está vacía, se mueve el disco a la pila "a"
@@ -21,11 +28,13 @@ namespace Torres_de_Hanoi
             {
                 movimientoDisco(a, b);
             }
+
             //Si la pila a está vacía, se mueve el disco a la pila "a"
             else if (a.isEmpty() == true)
             {
                 movimientoDisco(b, a);
             }
+
             //Si las pilas no están vacías
             else
             {
@@ -40,6 +49,7 @@ namespace Torres_de_Hanoi
                     //Movemos el disco de "b" a "a"
                     movimientoDisco(b, a);
                 }
+
                 //Si el valor de discoB es más grande que el valor de discoA
                 else
                 {
@@ -49,8 +59,10 @@ namespace Torres_de_Hanoi
             }
 
         }
+        //------------------------------
 
 
+        //------------------------------
         //Funcion para mover los discos cuando se da alguno de los casos de mover_disco
         public void movimientoDisco(Pila uno, Pila dos)
         {
@@ -64,7 +76,10 @@ namespace Torres_de_Hanoi
             dos.push(disco);
 
         }
+        //------------------------------
 
+
+        //------------------------------
         //Funcion para comprobar el movimiento de los discos entre pilas
         public void mirarMovimientos(Pila uno, Pila dos, Pila fin)
         {
@@ -75,7 +90,10 @@ namespace Torres_de_Hanoi
                 movimientos++;
             }
         }
+        //------------------------------
 
+
+        //------------------------------
         //Funcion del metodo iterativo
         public int iterativo(int num, Pila inicio, Pila final, Pila auxiliar)
         {
@@ -120,7 +138,10 @@ namespace Torres_de_Hanoi
             //Devolver el numero de movimientos realizados (Se incrementa por mirarMovimientos)
             return movimientos;
         }
+        //------------------------------
 
+
+        //------------------------------
         //Funcion del método recursivo
         public int recursivo(int num, Pila inicio, Pila final, Pila auxiliar)
         {
@@ -138,7 +159,10 @@ namespace Torres_de_Hanoi
             }
             return movimientos;
         }
+        //------------------------------
 
+
+        //------------------------------
         //Llamamos a la funcion recursiva para poder utilizar el algoritmo
         public int UsoRecursivo(int num, Pila inicio, Pila final, Pila auxiliar)
         {
@@ -146,7 +170,7 @@ namespace Torres_de_Hanoi
             movimientos = recursivo(num, inicio, final, auxiliar);
             return movimientos;
         }
-
-
+        //------------------------------
+        //------------------------------------------
     }
 }

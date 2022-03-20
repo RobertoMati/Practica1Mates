@@ -52,8 +52,8 @@ namespace Torres_de_Hanoi
         {
             //Extraemos el disco de la pila
             //El -1 Debe estar porque el Elementos.Count devuelve 3, y como se registran las posiciones (0,1,2), se saldría y da error
-            Disco d = Elementos[Elementos.Count-1];
-            Elementos.RemoveAt(Elementos.Count-1);
+            Disco d = Elementos[Top];
+            Elementos.RemoveAt(Top);
             Size--;
             return d;
         }

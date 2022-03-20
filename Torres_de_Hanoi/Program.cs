@@ -15,7 +15,6 @@ namespace Torres_de_Hanoi
             Console.WriteLine("Escribe el número de discos que quieres que hayan y pulsa Enter.\n");
 
             
-            
             //Guardo lo escrito por el usuario en un Strings
             String YaEscrito = Console.ReadLine().ToString();
             int valorEscrito;
@@ -43,7 +42,7 @@ namespace Torres_de_Hanoi
                 inicio.push(disco);
             }
 
-            //Creamos hanoi para poder operar
+            //Creamos hanoi para poder operar 
             Hanoi hanoi = new Hanoi();
 
             //Preguntamos al usuario el método que quiere utilizar
@@ -51,10 +50,10 @@ namespace Torres_de_Hanoi
             Console.WriteLine("\nEscribe 'a' para elegir el modo iterativo o 'b' para el método recursivo.");
             ConsoleKey tecla = Console.ReadKey().Key;
 
-            //Si las teclas presionadas no son ni la "a" ni la "b", pide volver a introducir un número
+            //Si las teclas presionadas no son ni la "a" ni la "b", pide volver a introducir una tecla
             while (tecla != ConsoleKey.A && tecla != ConsoleKey.B)
             {
-                Console.WriteLine("\nLa tecla seleccionada no hace ninguna acción, elige una de las ofrecidas");
+                Console.WriteLine("\nLa tecla seleccionada no hace ninguna acción, elige una de las ofrecidas anteriormente.");
                 tecla = Console.ReadKey().Key;
             }
 
@@ -87,6 +86,7 @@ namespace Torres_de_Hanoi
                     Console.WriteLine("Algo va mal, los valores no son iguales");
                 }
             }
+
             //Si el usuario escribe "b",  se ha elegido el método recursivo
             else if (tecla == ConsoleKey.B)
             {
