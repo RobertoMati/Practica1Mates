@@ -79,7 +79,7 @@ namespace Torres_de_Hanoi
                 //Si son iguales muestra un mensaje, sino, muestra otro
                 if ((Math.Pow(2, valorEscrito) - 1) == hanoiResultado)
                 {
-                    Console.WriteLine("¡El número de movimientos realizados coincide con el mínimo posible.");
+                    Console.WriteLine("¡El número de movimientos realizados coincide con el mínimo posible!");
                 }
                 else
                 {
