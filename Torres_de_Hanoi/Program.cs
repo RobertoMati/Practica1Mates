@@ -89,10 +89,10 @@ namespace Torres_de_Hanoi
                 }
             }
             //Si el usuario escribe "b",  se ha elegido el método recursivo
-            //else if (tecla == ConsoleKey.B)
-            //{
+            else if (tecla == ConsoleKey.B)
+            {
 
-            //}
+            }
 
             Console.WriteLine("\nPulsa cualquier tecla para acabar");
 

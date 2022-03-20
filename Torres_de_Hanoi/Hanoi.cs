@@ -110,6 +110,11 @@ namespace Torres_de_Hanoi
             return movimientos;
         }
 
+        public int recursivo(int num, Pila inicio, Pila final, Pila auxiliar, bool si)
+        {
+            return 0;
+        }
+
 
         //Funcion para comprobar el movimiento de los discos entre pilas
         public void mirarMovimientos(Pila uno, Pila dos, Pila fin)
